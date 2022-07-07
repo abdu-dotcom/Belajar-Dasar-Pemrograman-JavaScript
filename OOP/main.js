@@ -1,11 +1,11 @@
-// membuat object bernama mail
-const mail = {
-    from: "pengirim@dicoding.com",
-    sendMessage: function(msg, to) {
-        console.log(`you send: ${msg} to ${to} from ${this.from}`);
-    }
+// function: Menggunakan pendekatan prototype
+function Mail() {
+    this.from = 'pengirim@dicoding.com';
 }
 
-// menampilkan data form dari object mail
-console.log(mail.from);
-mail.sendMessage('apakabar', 'penerima@dicoding.com');
+Mail.prototype.sendMessage = function n(msg, to) {
+    console.log(`you send: ${msg} to ${to} from ${this.from}`);
+}
+
+const mail1 = new Mail();
+mail1.sendMessage('hallo', 'penerima@dicoding.com');
