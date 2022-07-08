@@ -15,10 +15,10 @@ class Mail {
 
 class WhatsApp extends Mail {
     // attribut
-    constructor(author) {
-        super(author);
-        this.username = 'dicoding';
-        this.isBussinessAccount = true;
+    constructor(username, isBussinessAccount, phoneNumber) {
+        super(phoneNumber);
+        this.username = username;
+        this.isBussinessAccount = isBussinessAccount;
     }
 
     myProfile() {
@@ -26,6 +26,6 @@ class WhatsApp extends Mail {
     }
 }
 
-const wa1 = new WhatsApp('080110002222');
-console.log(wa1.myProfile());
-console.log(wa1.sendMessage('halo', '089000999888'));
+const wa1 = new WhatsApp('dicoding', true, '089989090898');
+wa1.sendMessage('Hello', "0808080");
+console.log(wa1.from);
