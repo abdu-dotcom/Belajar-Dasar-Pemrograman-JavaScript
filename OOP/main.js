@@ -10,4 +10,4 @@ class Mail {
 }
 
 const mail1 = new Mail();
-mail1.sendMessage('hello', 'penerima@dicoding.com');
+mail1.sendMessage('hello', 'penerima@dicoding.co');
