@@ -1,14 +1,23 @@
-// immutability
+// bukan bentu Rekursif
+/* Rekursif merupakan teknik pada sebuah function 
+    yang memanggil dirinya sendiri.
+*/
 
-const user = {
-    firstname: 'Harry',
-    lastName: 'Protter',
+const notRekursif_countDown = notRekursif_start => {
+    do {
+        console.log(notRekursif_start);
+        notRekursif_start -= 1;
+    }
+    while (notRekursif_start > 0);
 }
 
-const renameLastNameUser = (newLastName, user) => {
-    return {...user, lastName: newLastName }
+console.log(`Bukan rekursif :`);
+const notRekursif = notRekursif_countDown(10);
+
+const rekursif_countDown = rekursif_start => {
+    console.log(rekursif_start);
+    if (rekursif_start > 0) rekursif_countDown(rekursif_start - 1);
 }
 
-const newUser = renameLastNameUser('Potter', user);
-
-console.log(newUser);
+console.log(`rekursif :`);
+rekursif_countDown(10);
