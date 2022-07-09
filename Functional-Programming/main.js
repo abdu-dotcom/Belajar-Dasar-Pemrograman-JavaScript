@@ -1,21 +1,14 @@
-// Pure Function Example
-/*
-    Karena fungsi hitungLuasLingkaran tidak membutuhkan nilai
-    yang berada diluar dari fungsinya
-*/
+// immutability
 
-// membuat object person baru dengan tambahan properti age dari objek person 
-const createPersonWithAge = (age, person) => {
-    return {...person, age }
+const user = {
+    firstname: 'Harry',
+    lastName: 'Protter',
 }
 
-const person = {
-    name: 'Bobo'
+const renameLastNameUser = (newLastName, user) => {
+    return {...user, lastName: newLastName }
 }
 
-const newPerson = createPersonWithAge(18, person);
+const newUser = renameLastNameUser('Potter', user);
 
-console.log({
-    person,
-    newPerson
-})
+console.log(newUser);
