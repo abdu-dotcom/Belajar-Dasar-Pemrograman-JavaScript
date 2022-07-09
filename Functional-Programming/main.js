@@ -1,10 +1,14 @@
-// Impure Function 
+// Pure Function 
 /*
-    Karena fungsi hitungLuasLingkaran membutuhkan nilai
-    yang berada diluar dari fungsinya yaitu variable PI
+    Karena fungsi hitungLuasLingkaran tidak membutuhkan nilai
+    yang berada diluar dari fungsinya
 */
-let PI = 3.14;
 
 const hitungLuasLingkaran = (jariJari) => {
-    return PI * (jariJari * jariJari);
+    return 3.14 * (jariJari * jariJari);
 }
+
+console.log(hitungLuasLingkaran(4));
+console.log(hitungLuasLingkaran(4));
+console.log(hitungLuasLingkaran(8));
+console.log(hitungLuasLingkaran(8));
