@@ -1,10 +1,12 @@
-// InPure Function Example
-
+// Pure Function Example
+/*
+    Karena fungsi hitungLuasLingkaran tidak membutuhkan nilai
+    yang berada diluar dari fungsinya
+*/
 
 // membuat object person baru dengan tambahan properti age dari objek person 
 const createPersonWithAge = (age, person) => {
-    person.age = age;
-    return person;
+    return {...person, age }
 }
 
 const person = {
