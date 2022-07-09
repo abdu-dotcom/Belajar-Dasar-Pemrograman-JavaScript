@@ -1,18 +1,10 @@
-// salah satu contoh gaya penulisan kode imperatif.
-/*  
-    Dimana proses pengisian nilai array baru (newNames) 
-    berdasarkan array lama (names) dilakukan secara manual.
+// Impure Function 
+/*
+    Karena fungsi hitungLuasLingkaran membutuhkan nilai
+    yang berada diluar dari fungsinya yaitu variable PI
 */
-const Imperatif_names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
-const Imperatif_newNamesWithExcMark = [];
+let PI = 3.14;
 
-for (let i = 0; i < Imperatif_names.length; i++) {
-    Imperatif_newNamesWithExcMark.push(`${Imperatif_names[i]}!`);
+const hitungLuasLingkaran = (jariJari) => {
+    return PI * (jariJari * jariJari);
 }
-console.log(`Output Imperatif: ${Imperatif_newNamesWithExcMark}`);
-
-// gaya penulisan deklaratif
-const Deklaratif_names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
-const Deklaratif_newNamesWithExcMark = Deklaratif_names.map((name) => `${name}!`);
-
-console.log(`Output Deklaratif: ${Deklaratif_newNamesWithExcMark}`);
