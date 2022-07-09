@@ -1,14 +1,19 @@
-// Pure Function 
-/*
-    Karena fungsi hitungLuasLingkaran tidak membutuhkan nilai
-    yang berada diluar dari fungsinya
-*/
+// InPure Function Example
 
-const hitungLuasLingkaran = (jariJari) => {
-    return 3.14 * (jariJari * jariJari);
+
+// membuat object person baru dengan tambahan properti age dari objek person 
+const createPersonWithAge = (age, person) => {
+    person.age = age;
+    return person;
 }
 
-console.log(hitungLuasLingkaran(4));
-console.log(hitungLuasLingkaran(4));
-console.log(hitungLuasLingkaran(8));
-console.log(hitungLuasLingkaran(8));
+const person = {
+    name: 'Bobo'
+}
+
+const newPerson = createPersonWithAge(18, person);
+
+console.log({
+    person,
+    newPerson
+})
