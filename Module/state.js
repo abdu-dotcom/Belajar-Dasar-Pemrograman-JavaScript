@@ -5,4 +5,5 @@ const coffeeStack = {
 }
 
 const isCoffeeMachineReady = true;
-export { coffeeStack, isCoffeeMachineReady };
+
+module.exports = { coffeeStack, isCoffeeMachineReady };
