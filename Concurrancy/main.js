@@ -1,47 +1,66 @@
-// object stock
-const stock = {
-    coffeBeans: 250,
-    water: 1000,
+// function makeExpresso
+function makeEspresso() {
+    // mengecek ketersediaan kopi
+    checkAvailability()
+        .then((value) => {
+            console.log(value);
+            return checkStock();
+        })
+        .then((value) => {
+            console.log(value)
+            return brewCoffee();
+        })
+        .then((value) => {
+            console.log(value);
+        })
+        .catch((rejectedReason) => {
+            console.log(rejectedReason);
+        })
 }
 
-// function checkStock
-/*
-    checkStock() merupakan fungsi yang mengembalikan promise
-    dan akan menghasilkan resolve() dengan membawa nilai 
-    "Stok cukup. Bisa membuat kopi".
-*/
-const checkStock = () => {
+const state = {
+        stock: {
+            coffeeBeans: 250,
+            water: 1000
+        },
+        isCoffeeMachineBusy: false
+    }
+    // function mengecek ketersedia alat kopi
+const checkAvailability = () => {
     return new Promise((resolve, reject) => {
-        if (stock.coffeBeans >= 16 && stock.water >= 250) {
-            resolve("Stok cukup. Bisa membuat kopi");
-        } else {
-            reject("Stok tidak cukup");
-        }
+        setTimeout(() => {
+            if (!state.isCoffeeMachineBusy) {
+                resolve("Mesin kopi siap digunakan");
+            } else {
+                reject("Maaf, mesin sedang sibuk.");
+            }
+        }, 1000);
     })
 }
 
-// function handle success
-/*
-    Lalu kita mendeklaraasikan fungsi handleSuccess() dan 
-    handleFailure yang mencetak nilai dari parameternya.
-*/
-const handleSuccess = resoluvedValue => {
-    console.log(resoluvedValue);
+// function mengecek ketersedia kopi
+const checkStock = () => {
+    return new Promise((resolve, reject) => {
+        state.isCoffeeMachineBusy = true;
+        setTimeout(() => {
+            if (state.stock.coffeeBeans >= 16 && state.stock.water >= 250) {
+                resolve("Stok cukup. Bisa membuat kopi.");
+            } else {
+                reject("Stok tidak cukup!");
+            }
+        }, 1500);
+    })
 }
 
-// function handle failure 
-const handleFailure = rejectionReason => {
-    console.log(rejectionReason);
-}
-
-/*
-    Kemudian kita memanggil method .then() dari checkStock.
-    isi paramaternya .then() dengan dua fungsi handler yang telah 
-    kitabuat sebelumnya.
-*/
-/* 
-    Paramater pertama berisi fungsi handleSuccess untuk menangani
-    kondisi ketika promise berstatus resolve. parameter kedua berisi 
-    funsi handleFailure yang menangani ketika promise bertatus reject
-*/
-checkStock().then(handleSuccess).catch(handleFailure);
+// function untuk memcampurkan kopi dan air lalu menghidangkannya ke dalam gelas
+const brewCoffee = () => {
+        console.log("Membuat kopi Anda...");
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Kopi sudah siap!");
+            }, 2000);
+        })
+    }
+    // menjalankan function makeExpresso
+makeEspresso();
+// Concurrency
