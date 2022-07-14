@@ -44,4 +44,4 @@ const handleFailure = rejectionReason => {
     kondisi ketika promise berstatus resolve. parameter kedua berisi 
     funsi handleFailure yang menangani ketika promise bertatus reject
 */
-checkStock().then(handleSuccess, handleFailure);
+checkStock().then(handleSuccess).catch(handleFailure);
