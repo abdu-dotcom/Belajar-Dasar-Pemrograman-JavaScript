@@ -1,22 +1,39 @@
-let json = '{ "name": "Yoda", "age": 20 }';
+const detectTriangle = (a, b, c) => {
+    // TODO 3
 
-try {
-    let user = JSON.parse(json);
-
-    if (!user.name) {
-        throw new SyntaxError("'name' is required.");
+    if (a === b && b === c) {
+        return 'Segitiga sama sisi';
     }
 
-    errorCode;
+    if (a === b || a === c || b === c) {
+        return 'Segitiga sama kaki';
+    }
 
-    console.log(user.name); // Yoda
-    console.log(user.age); // 20
-} catch (error) {
-    if (error instanceof SyntaxError) {
-        console.log(`JSON: ${error.message}`);
-    } else if (error instanceof ReferenceError) {
-        console.log(error.message);
-    } else {
-        console.log(error.stack);
+    return 'Segitiga sembarang';
+};
+
+let result = detectTriangle('a', 3, 5);
+// console.log(result);
+
+
+// TODO 1 :
+class ValidationError {
+    constructor(message) {
+        this.name = "ValidationError";
+        this.msg = message;
     }
 }
+
+function validateNumberInput(a, b, c) {
+    if (typeof(a) != "number") {
+        return `Argumen pertama bukan number`;
+    }
+    if (typeof(b) != "number") {
+        return `Argumen kedua bukan number`;
+    }
+    if (typeof(c) != "number") {
+        return `Argumen ketiga bukan number`;
+    }
+}
+
+validateNumberInput('a', true, 2);
